@@ -2,7 +2,7 @@
 > Proyecto desarrollado con fines didácticos usando React, Babel, Webpack, Bootstrap y Firebase.
 
 ## Screenshots / Capturas de Pantalla
-
+![React-Firebase-Chat](https://lh3.googleusercontent.com/aNQZn082gPTivMFESiNSox9qysvgKnyBkiwCDZs95xakm1FV2qpMt3UDpemgH1L3fuwCTvNA8eBC=s600 "React-Firebase-Chat")
 
 ## Tech-framework used / Tecnologías Usadas
 - Firebase
@@ -26,8 +26,8 @@ npm run dev
 ## Tasks / Lista de Tareas
 - [x] Inicializar repositorio
 - [x] Subir mis primeros cambios a GitHub
-- [ ] Completar el back-end
-- [ ] Completar el front-end
+- [x] Completar el chat
+- [x] Completar la conexion a Firebase
 
 ## Contribute / Para contribuir
 1. Has un [Fork](https://github.com/pulidovpe/react-firebase-chat/fork)

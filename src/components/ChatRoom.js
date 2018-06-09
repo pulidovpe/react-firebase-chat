@@ -10,7 +10,16 @@ class ChatRoom extends Component {
 		this.updateMsg = this.updateMsg.bind(this);
 		this.submitMsg = this.submitMsg.bind(this);
 	}
-
+	componentDidMount() {
+		firebase.database().ref('messages/').on('value', snapshot => {
+			const currentMsg = snapshot.val();
+			if(currentMsg != null) {
+				this.setState({
+					messages: currentMsg
+				})
+			}
+		});
+	}
 	updateMsg(ev) {
 		this.setState({
 			message: ev.target.value
@@ -22,13 +31,14 @@ class ChatRoom extends Component {
 			id: this.state.messages.length,
 			text: this.state.message
 		}
-		
-		let listMsg = this.state.messages;
+		firebase.database().ref('messages/' + msg.id).set(msg);
+		this.setState({message: ''});
+		/*let listMsg = this.state.messages;
 		listMsg.push(msg);
 		this.setState({
 			messages: listMsg,
 			message: ''
-		});
+		});*/
 	}
 	render() {
 		const currentMsg = this.state.messages.map((msg) => {
