@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import firebase from 'firebase';
 
 class ChatRoom extends Component {
 	constructor(){
@@ -43,7 +44,9 @@ class ChatRoom extends Component {
 	render() {
 		const currentMsg = this.state.messages.map((msg) => {
 			return (
-				<li key={msg.id} className="list-group-item list-group-item-action">{msg.text}</li>
+				<li key={msg.id} className="list-group-item list-group-item-action">
+					<p>{msg.text}</p>
+				</li>
 			)
 		})
 		return (
