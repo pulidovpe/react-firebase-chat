@@ -40,9 +40,9 @@ npm run dev
 5. Has un "Pull Request"
 
 ## Credits / Créditos
-En este proyecto, me he guiado del tutorial publicado en esta página:
-[Faztweb](http://www.faztweb.com/tutorial/react-firebase-chat-bootstrap4), 
+En este proyecto, me he guiado del tutorial publicado en [Faztweb](http://www.faztweb.com/tutorial/react-firebase-chat-bootstrap4) 
 > propiedad del usuario @github/FaztWeb 
+
 Y en este otro blog para la autenticación [CarlosAzaustre](https://carlosazaustre.es/blog)
 > propiedad del usuario @github/carlosazaustre
 
