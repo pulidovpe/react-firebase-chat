@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import firebase from 'firebase';
-
-import ChatRoom from './components/ChatRoom';
 import Authenticate from './components/Authenticate';
 
 firebase.initializeApp({
@@ -21,13 +19,12 @@ class App extends Component {
 				<nav className="navbar navbar-light bg-primary ">
 					<a className="navbar-brand text-white">Chat React</a>
 					<div className="ml-auto">
-						<Authenticate />
 					</div>
 				</nav>
 				<div className="container p-5">
 					<div className="row">
 						<div className="col-md-6 offset-md-3">
-							<ChatRoom />
+							<Authenticate />
 						</div>
 					</div>
 				</div>

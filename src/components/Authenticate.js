@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 
+import ChatRoom from './ChatRoom';
+
 class Authenticate extends Component {
 	constructor(){
 		super();
@@ -10,6 +12,7 @@ class Authenticate extends Component {
 		this.handleAuth = this.handleAuth.bind(this);
 		this.handleLogout = this.handleLogout.bind(this);
 	}
+	
 	componentWillMount() {
 		firebase.auth().onAuthStateChanged(user => {
 			this.setState({ user })
@@ -34,14 +37,18 @@ class Authenticate extends Component {
 		if(this.state.user){
 			return (
 				<div>
-					<img width="25" src={this.state.user.photoURL} alt={this.state.user.displayName} />
-					<b>{this.state.user.displayName}</b>
-					<button onClick={this.handleLogout} className="btn btn-outline-dark btn-sm">Logout</button>
+					<div className="row justify-content-md-center">
+						<img width="25" src={this.state.user.photoURL} alt={this.state.user.displayName} />
+						<b>{this.state.user.displayName}</b>
+						<button onClick={this.handleLogout} className="btn btn-outline-dark btn-sm">Logout</button>
+					</div>
+					<ChatRoom user={this.state.user} />
 				</div>
 			) 
 		} else {
 			return (
-				<div>
+				<div className="row justify-content-md-center">
+					<h3>For chatting you need to authenticate!</h3>
 					<button onClick={this.handleAuth} className="btn btn-outline-dark btn-sm">Login</button>
 				</div>
 			)
