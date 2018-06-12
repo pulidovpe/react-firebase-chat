@@ -6,8 +6,7 @@ class ChatRoom extends Component {
 	constructor(){
 		super();
 		this.state = {
-			user: '',
-			email: '',
+			user: null,
 			message  : '',
 			messages : []
 		}
@@ -15,10 +14,9 @@ class ChatRoom extends Component {
 		this.submitMsg = this.submitMsg.bind(this);
 	}
 	componentWillMount() {
-		console.log(`Usuario: ${this.props.user.displayName}`);
+		/*console.log(`Usuario: ${this.props.user.displayName}`);*/
 		this.setState({
-			user: this.props.user.displayName,
-			email: this.props.user.email
+			user: this.props.user
 		})
 	}
 	componentDidMount() {
@@ -41,8 +39,8 @@ class ChatRoom extends Component {
 		const msg = {
 			id: this.state.messages.length,
 			text: this.state.message,
-			user: this.state.user,
-			email: this.state.email
+			user: this.state.user.displayName,
+			email: this.state.user.email
 		}
 		firebase.database().ref('messages/' + msg.id).set(msg);
 		this.setState({message: ''});
@@ -88,8 +86,7 @@ class ChatRoom extends Component {
 	}
 }
 ChatRoom.propTypes = {
-	user: PropTypes.string.isRequired,
-	email: PropTypes.string.isRequired
+	user: PropTypes.object
 };
 
 export default ChatRoom;
